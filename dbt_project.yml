@@ -41,3 +41,8 @@ models:
       tags: ['SILVER']
       +schema: silver
 
+    marts:
+      +materialized: table
+      +database: tpch_dev
+      tags: ['GOLD']
+      +schema: gold

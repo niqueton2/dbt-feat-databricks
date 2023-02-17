@@ -37,7 +37,7 @@ p.p_RETAILPRICE,
 ps.ps_PARTKEY,
 ps.ps_SUPPKEY,
 ps.ps_AVAILQTY,
-ps.ps_UPPLYCOST,
+ps.ps_SUPPLYCOST,
 ps.ps_COMMENT,
 ps.ps_load_timestamp
 

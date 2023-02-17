@@ -48,7 +48,8 @@ c.c_PHONE,
 c.c_ACCTBAL,
 c.c_MKTSEGMENT,
 c.c_COMMENT,
-c.c_nationkey
+c.c_nationkey,
+l.l_load_timestamp
 
 from 
 base_lineitem l 
@@ -63,6 +64,6 @@ on o.o_custkey=c.c_custkey
 {% if is_incremental() %}
 
 
-where l_shipdate >= (select max(l.l_shipdate) from {{ this }})
+where l.l_load_timestamp >= (select max(l_load_timestamp) from {{ this }})
 
 {% endif %}

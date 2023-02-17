@@ -38,7 +38,8 @@ ps.ps_PARTKEY,
 ps.ps_SUPPKEY,
 ps.ps_AVAILQTY,
 ps.ps_UPPLYCOST,
-ps.ps_COMMENT
+ps.ps_COMMENT,
+ps.ps_load_timestamp
 
 from base_supplier s 
 join base_partsupp ps 
@@ -49,6 +50,6 @@ on ps.ps_partkey=p.p_partkey
 
 {% if is_incremental() %}
 
-where l_shipdate >= (select max(l.l_shipdate) from {{ this }})
+where ps.ps_load_timestamp >= (select max(ps_load_timestamp) from {{ this }})
 
 {% endif %}

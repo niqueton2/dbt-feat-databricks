@@ -14,6 +14,12 @@ select * from a1
 
 {% if is_incremental() %}
 
-where o_load_timestamp >= (select max(o_load_timestamp) from {{ this }})
+where o_load_timestamp > 
+ (
+    select
+     max(o_load_timestamp) 
+     from {{ this }}
+ )
+)
 
 {% endif %}

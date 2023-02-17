@@ -67,3 +67,6 @@ on o.o_custkey=c.c_custkey
 where l.l_load_timestamp >= (select max(l_load_timestamp) from {{ this }})
 
 {% endif %}
+
+
+limit 1000

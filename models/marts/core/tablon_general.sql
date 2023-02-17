@@ -25,8 +25,8 @@ aux1 as (
 
 select
 
-s.n_name ,
-s.r_name ,
+l.n_name ,
+l.r_name ,
 o.l_PARTKEY,
 o.l_SUPPKEY,
 o.l_QUANTITY,
@@ -56,7 +56,7 @@ s.p_RETAILPRICE,
 s.p_SIZE,
 s.p_TYPE,
 l.n_name,
-l.r_name
+l.r_name,
 s.ps_load_timestamp
 
 from stg_ld l 
@@ -68,8 +68,8 @@ on s.s_NATIONKEY=l.n_nationkey
 
 select 
 
-u.n_name  as 'customer_nation',
-u.r_name  as 'customer_region',
+u.n_name  as customer_nation,
+u.r_name  as customer_region,
 u.l_PARTKEY,
 u.l_SUPPKEY,
 u.l_QUANTITY,
@@ -79,7 +79,7 @@ u.l_TAX,
 u.o_TOTALPRICE,
 u.o_ORDERDATE,
 u.c_NAME,
-u.l_load_timestamp
+u.l_load_timestamp,
 d.ps_suppkey,
 d.ps_partkey,
 d.s_NAME,
@@ -88,8 +88,8 @@ d.p_BRAND,
 d.p_RETAILPRICE,
 d.p_SIZE,
 d.p_TYPE,
-d.n_name  as 'supplier_nation',
-d.r_name as 'supplier_region',
+d.n_name  as supplier_nation,
+d.r_name as supplier_region,
 d.ps_load_timestamp
 
 from aux1 u
@@ -106,13 +106,10 @@ on
 where 
 (
     d.ps_load_timestamp >= (select max(ps_load_timestamp) from {{ this }})
-
+    or
+    u.l_load_timestamp >= (select max(l_load_timestamp) from {{ this }})
 )
 
 {% endif %}
 
 
-/*
- or
-    u.l_load_timestamp >= (select max(l_load_timestamp) from {{ this }})
-    

@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: tablon_general
+    description: ""
+    columns:
+      - name: customer_nation
+        description: ""
+
+      - name: customer_region
+        description: ""
+
+      - name: l_partkey
+        description: ""
+
+      - name: l_suppkey
+        description: ""
+
+      - name: l_quantity
+        description: ""
+
+      - name: l_extendedprice
+        description: ""
+
+      - name: l_discount
+        description: ""
+
+      - name: l_tax
+        description: ""
+
+      - name: o_totalprice
+        description: ""
+
+      - name: o_orderdate
+        description: ""
+
+      - name: c_name
+        description: ""
+
+      - name: l_load_timestamp
+        description: ""
+
+      - name: ps_suppkey
+        description: ""
+
+      - name: ps_partkey
+        description: ""
+
+      - name: s_name
+        description: ""
+
+      - name: ps_supplycost
+        description: ""
+
+      - name: p_brand
+        description: ""
+
+      - name: p_retailprice
+        description: ""
+
+      - name: p_size
+        description: ""
+
+      - name: p_type
+        description: ""
+
+      - name: supplier_nation
+        description: ""
+
+      - name: supplier_region
+        description: ""
+
+      - name: ps_load_timestamp
+        description: ""
+

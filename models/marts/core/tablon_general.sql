@@ -106,10 +106,13 @@ on
 where 
 (
     d.ps_load_timestamp >= (select max(ps_load_timestamp) from {{ this }})
-    or
-    u.l_load_timestamp >= (select max(l_load_timestamp) from {{ this }})
+
 )
 
 {% endif %}
 
 
+/*
+ or
+    u.l_load_timestamp >= (select max(l_load_timestamp) from {{ this }})
+    

@@ -5,7 +5,7 @@
 }}
 
 with a1 as (
-    select * from {{ source('tpch', 'lineitem') }}
+    select * from {{ source('dbt_niqueton', 'lineitem') }}
 )
 
 select * from a1

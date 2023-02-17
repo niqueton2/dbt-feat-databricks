@@ -1,5 +1,5 @@
 with a1 as (
-    select * from {{ source('tpch', 'customer') }}
+    select * from {{ source('dbt_niqueton', 'customer') }}
 )
 
 select * from a1

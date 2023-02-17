@@ -1,9 +1,8 @@
 version: 2
 
 sources:
-  - name: tpch
+  - name: dbt_niqueton
     description: ""
-    database: samples
     tables:
       - name: region
         description: ""
@@ -44,25 +43,7 @@ sources:
             description: ""
           - name: s_comment
             description: ""
-
-      - name: customer
-        description: ""
-        columns:
-          - name: c_custkey
-            description: ""
-          - name: c_name
-            description: ""
-          - name: c_address
-            description: ""
-          - name: c_nationkey
-            description: ""
-          - name: c_phone
-            description: ""
-          - name: c_acctbal
-            description: ""
-          - name: c_mktsegment
-            description: ""
-          - name: c_comment
+          - name: s_load_timestamp
             description: ""
 
       - name: part
@@ -86,6 +67,8 @@ sources:
             description: ""
           - name: p_comment
             description: ""
+          - name: p_load_timestamp
+            description: ""
 
       - name: partsupp
         description: ""
@@ -99,6 +82,30 @@ sources:
           - name: ps_supplycost
             description: ""
           - name: ps_comment
+            description: ""
+          - name: ps_load_timestamp
+            description: ""
+
+      - name: customer
+        description: ""
+        columns:
+          - name: c_custkey
+            description: ""
+          - name: c_name
+            description: ""
+          - name: c_address
+            description: ""
+          - name: c_nationkey
+            description: ""
+          - name: c_phone
+            description: ""
+          - name: c_acctbal
+            description: ""
+          - name: c_mktsegment
+            description: ""
+          - name: c_comment
+            description: ""
+          - name: c_load_timestamp
             description: ""
 
       - name: orders
@@ -121,6 +128,8 @@ sources:
           - name: o_shippriority
             description: ""
           - name: o_comment
+            description: ""
+          - name: o_load_timestamp
             description: ""
 
       - name: lineitem
@@ -158,4 +167,5 @@ sources:
             description: ""
           - name: l_comment
             description: ""
-
+          - name: l_load_timestamp
+            description: ""
